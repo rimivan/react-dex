@@ -31,7 +31,7 @@ export default function PokeGeneral() {
   
   return(
     <>
-      <div> Contact - -Poke general Page - {pokeId}</div>
+      <div> You choose . . . 🥁 . . .  {pokeId}</div>
       <PokeDetail data={detail} />
     </>
   )
