@@ -14,27 +14,26 @@ export async function loader() {
 
 export default function Layout() {
   const pokes = useLoaderData();
-    return (
-      <>
-        <div id="sidebar">
-          <h1>Poke list:</h1>
-          <nav>
-            <ul>
-              {pokes.data.results.map((poke) => (
-                <li key={poke.name}>
-                  <Link to={`poke/` + poke.name}>
-                    {poke.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-        <div id="detail">
-          <Outlet/>
-        </div>
-      </>
-    );
-  
+  return (
+    <>
+      <div id="sidebar">
+        <h1>Poke list:</h1>
+        <nav>
+          <ul>
+            {pokes.data.results.map((poke) => (
+              <li key={poke.name}>
+                <Link to={`poke/` + poke.name}>
+                  {poke.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+      <div id="detail">
+        <Outlet/>
+      </div>
+    </>
+  );
 }
 
