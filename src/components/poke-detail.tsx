@@ -1,8 +1,17 @@
+import { Button } from '@mui/material';
+import { usePokeStore } from '../stores/PokeStore.tsx';
+
 export default function PokeDetail(data: any) {
-  
-  console.log("Poke detail data: ", data)
-  
-  return(
+  const { updatePoke } = usePokeStore();
+
+  console.log('Poke detail data: ', data);
+
+  const handleChoosePoke = () => {
+    console.log('Data: ', data);
+    updatePoke(data.data.name);
+  };
+
+  return (
     <>
       <div>
         <h2> Your poke </h2>
@@ -10,14 +19,13 @@ export default function PokeDetail(data: any) {
         <div>
           <span>Abilities: </span>
           {data.data?.abilities.map((abilitiy, index) => (
-            <span>
-              {index === 0 ? abilitiy.ability.name : ', ' + abilitiy.ability.name}
-            </span>
+            <span>{index === 0 ? abilitiy.ability.name : ', ' + abilitiy.ability.name}</span>
           ))}
         </div>
-        <img src={data.data?.sprites.front_default}/>
+        <img src={data.data?.sprites.front_default} />
+        <Button onClick={() => handleChoosePoke()}> Choose Poke </Button>
       </div>
-      
+
       {/*<Card sx={{ maxWidth: 345 }}>*/}
       {/*  <CardMedia*/}
       {/*    sx={{ height: 140 }}*/}
@@ -39,5 +47,5 @@ export default function PokeDetail(data: any) {
       {/*  </CardActions>*/}
       {/*</Card>*/}
     </>
-  )
+  );
 }

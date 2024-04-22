@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 export const useFetchPoke = (url) => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -14,13 +14,13 @@ export const useFetchPoke = (url) => {
         setError(error);
       }
     };
-    
+
     fetchData();
-    
+
     return () => {
       // Annulla la sottoscrizione all'evento API quando il componente viene smontato
     };
   }, [url]);
-  
+
   return { data, error };
 };
