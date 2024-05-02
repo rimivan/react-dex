@@ -10,5 +10,7 @@ export const usePokeStore = create<PokeStore>(
   devtools((set) => ({
     pokename: 'Default',
     updatePoke: (newPokeName) => set((state) => ({ pokename: newPokeName }))
-  }))
+  }), {
+    name: 'poke-store'
+  })
 );

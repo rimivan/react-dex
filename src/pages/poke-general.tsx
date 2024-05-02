@@ -1,4 +1,4 @@
-import { Outlet, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import PokeDetail from '../components/poke-detail.tsx';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
